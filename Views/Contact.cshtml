@@ -1,0 +1,79 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using PerfectAimBowling.Models;
+@{
+	Layout = "SiteMaster.cshtml";
+}
+
+<div class="gtco-section">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-6 animate-box">
+					<h3>Get In Touch</h3>
+                    @if (TempData["ContactSuccess"] != null && (bool)TempData["ContactSuccess"])
+                    {
+                        <p>Your message was sent successfully</p>
+                    }
+                    else
+                    {
+                        Html.RenderAction("RenderContactForm", "ContactForm", new ContactFormViewModel());
+                    }
+				</div>
+				<div class="col-md-5 col-md-push-1 animate-box">
+					
+					<div class="gtco-contact-info">
+						<h3>USA Office</h3>
+						<ul>
+							<li class="address">198 West 21th Street, <br> Suite 721 New York NY 10016</li>
+							<li class="phone"><a href="tel://1234567920">+ 1235 2355 98</a></li>
+							<li class="email"><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+							<li class="url"><a href="http://FreeHTML5.co">FreeHTML5.co</a></li>
+						</ul>
+					</div>
+
+					<div class="gtco-contact-info">
+						<h3>Australia Office</h3>
+						<ul>
+							<li class="address">198 West 21th Street, <br> Suite 721 New York NY 10016</li>
+							<li class="phone"><a href="tel://1234567920">+ 1235 2355 98</a></li>
+							<li class="email"><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+							<li class="url"><a href="http://FreeHTML5.co">FreeHTML5.co</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<div id="gtco-subscribe">
+		<div class="gtco-container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+					<h2>Subscribe</h2>
+					<p>Be the first to know about the new templates.</p>
+				</div>
+			</div>
+			<div class="row animate-box">
+				<div class="col-md-12">
+					<form class="form-inline">
+						<div class="col-md-4 col-sm-4">
+							<div class="form-group">
+								<label for="email" class="sr-only">Email</label>
+								<input type="email" class="form-control" id="email" placeholder="Your email">
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<div class="form-group">
+								<label for="name" class="sr-only">Name</label>
+								<input type="text" class="form-control" id="name" placeholder="Your name">
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<button type="submit" class="btn btn-default btn-block">Subscribe</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>

@@ -1,16 +1,33 @@
-﻿@{Html.RenderAction("RenderNavigation", "SiteLayout"); }
-<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using PerfectAimBowling.Models;
+@using Archetype.Models;
+@using Archetype.Extensions;
+@using Newtonsoft.Json;
+
+@{
+    var heroImage = Umbraco.Media(Umbraco.AssignedContentItem.GetPropertyValue<int>("heroImage"));
+    var heroTitle = Umbraco.AssignedContentItem.GetPropertyValue("heroTitle");
+    var heroIntroduction = Umbraco.AssignedContentItem.GetPropertyValue("heroIntroduction");
+    var heroButton = Umbraco.AssignedContentItem.GetPropertyValue<ArchetypeModel>("heroButton");
+}
+
+<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(@heroImage.Url);">
     <div class="overlay"></div>
     <div class="gtco-container">
         <div class="row">
             <div class="col-md-12 col-md-offset-0 text-center">
                 <div class="display-t">
                     <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                        <h1>Greatness Free Template</h1>
-                        <h2>Free html5 templates Made by <a href="http://FreeHTML5.co/" target="_blank">FreeHTML5.co</a></h2>
+                        <h1>@( String.IsNullOrWhiteSpace(heroTitle.ToString()) ? Umbraco.AssignedContentItem.Name : heroTitle )</h1>
+                        <h2>@( String.IsNullOrWhiteSpace(heroIntroduction.ToString()) ? String.Empty : heroIntroduction )</h2>
                         <p>
-                            <a href="#" class="btn btn-primary btn-lg">Get Started</a>
-                            <a href="#" class="btn btn-white btn-outline btn-lg">Download</a>
+                            @if (!heroButton.Fieldsets.Any()) {
+                                foreach (var fieldset in heroButton)
+                                {
+                                    var link = JsonConvert.DeserializeObject<LinkPickerModel>(fieldset.GetValue("buttonLink").ToString());
+                                    <a href="@link.Url" target="@link.Target" class="btn btn-white btn-outline btn-lg">@fieldset.GetValue("buttonText")</a>
+                                }
+                            }
                         </p>
                     </div>
                 </div>

@@ -29,6 +29,8 @@
         <link rel="stylesheet" href="/Content/animate.css">
         <!-- Icomoon Icon Fonts-->
         <link rel="stylesheet" href="/Content/icomoon.css">
+        <!-- Font Awesome Icon Fonts-->
+        <link rel="stylesheet" href="/Content/font-awesome.min.css">
         <!-- Bootstrap  -->
         <link rel="stylesheet" href="/Content/bootstrap.css">
         <!-- Magnific Popup -->
@@ -47,8 +49,10 @@
     </head>
     <body>
         <div id="page">
+            @{Html.RenderAction("RenderNavigation", "SiteLayout"); }
             @{Html.RenderAction("RenderHeader", "SiteLayout");}
             @RenderBody()
+            @{Html.RenderAction("RenderSubscribe", "GlobalComponents"); }
             @{ Html.RenderAction("RenderFooter", "SiteLayout"); }
         </div>
         <div class="gototop js-top">

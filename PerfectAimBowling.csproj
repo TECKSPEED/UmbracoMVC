@@ -334,6 +334,14 @@
     <Content Include="Views\Partials\Home\_HomeTestimonialsFeatured.cshtml" />
     <Content Include="Views\Partials\Home\_HomeServicesFeatured.cshtml" />
     <Content Include="Views\Partials\_Subscribe.cshtml" />
+    <Content Include="Views\About.cshtml" />
+    <Content Include="Views\Services.cshtml" />
+    <Content Include="Views\Contact.cshtml" />
+    <Content Include="Views\GenericContent.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Partials\Contact\_ContactForm.cshtml" />
+    <Content Include="Views\MacroPartials\Contact Form.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -345,9 +353,15 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\GlobalComponentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\SiteLayoutController.cs" />
+    <Compile Include="Models\ContactFormViewModel.cs" />
+    <Compile Include="Models\LinkPickerModel.cs" />
+    <Compile Include="Models\NavigationLink.cs" />
+    <Compile Include="Models\NavigationListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -355,8 +369,8 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Views\Partials\Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

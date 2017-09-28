@@ -19,14 +19,14 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "cf1bb49499490961")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "44e9f5aa2129d7d4")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
 	/// <summary>Home</summary>
 	[PublishedContentModel("siteMaster")]
-	public partial class SiteMaster : PublishedContentModel
+	public partial class SiteMaster : PublishedContentModel, IHeader
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "siteMaster";
@@ -48,6 +48,503 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
+
+		///<summary>
+		/// Hero Button: Enter details for the Hero Button
+		///</summary>
+		[ImplementPropertyType("heroButton")]
+		public Archetype.Models.ArchetypeModel HeroButton
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroButton(this); }
+		}
+
+		///<summary>
+		/// Hero Image: Select a Media Item to use as the background image for the Hero
+		///</summary>
+		[ImplementPropertyType("heroImage")]
+		public IPublishedContent HeroImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroImage(this); }
+		}
+
+		///<summary>
+		/// Hero Introduction: Enter a one or two sentance statment
+		///</summary>
+		[ImplementPropertyType("heroIntroduction")]
+		public IHtmlString HeroIntroduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroIntroduction(this); }
+		}
+
+		///<summary>
+		/// Hero Title: Enter the Hero Title - if left blank the page name will be used
+		///</summary>
+		[ImplementPropertyType("heroTitle")]
+		public string HeroTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroTitle(this); }
+		}
+	}
+
+	/// <summary>About</summary>
+	[PublishedContentModel("about")]
+	public partial class About : PublishedContentModel, IHeader
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "about";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public About(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<About, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Hero Button: Enter details for the Hero Button
+		///</summary>
+		[ImplementPropertyType("heroButton")]
+		public Archetype.Models.ArchetypeModel HeroButton
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroButton(this); }
+		}
+
+		///<summary>
+		/// Hero Image: Select a Media Item to use as the background image for the Hero
+		///</summary>
+		[ImplementPropertyType("heroImage")]
+		public IPublishedContent HeroImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroImage(this); }
+		}
+
+		///<summary>
+		/// Hero Introduction: Enter a one or two sentance statment
+		///</summary>
+		[ImplementPropertyType("heroIntroduction")]
+		public IHtmlString HeroIntroduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroIntroduction(this); }
+		}
+
+		///<summary>
+		/// Hero Title: Enter the Hero Title - if left blank the page name will be used
+		///</summary>
+		[ImplementPropertyType("heroTitle")]
+		public string HeroTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroTitle(this); }
+		}
+	}
+
+	/// <summary>Services</summary>
+	[PublishedContentModel("services")]
+	public partial class Services : PublishedContentModel, IHeader
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "services";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Services(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Services, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Hero Button: Enter details for the Hero Button
+		///</summary>
+		[ImplementPropertyType("heroButton")]
+		public Archetype.Models.ArchetypeModel HeroButton
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroButton(this); }
+		}
+
+		///<summary>
+		/// Hero Image: Select a Media Item to use as the background image for the Hero
+		///</summary>
+		[ImplementPropertyType("heroImage")]
+		public IPublishedContent HeroImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroImage(this); }
+		}
+
+		///<summary>
+		/// Hero Introduction: Enter a one or two sentance statment
+		///</summary>
+		[ImplementPropertyType("heroIntroduction")]
+		public IHtmlString HeroIntroduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroIntroduction(this); }
+		}
+
+		///<summary>
+		/// Hero Title: Enter the Hero Title - if left blank the page name will be used
+		///</summary>
+		[ImplementPropertyType("heroTitle")]
+		public string HeroTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroTitle(this); }
+		}
+	}
+
+	/// <summary>Contact</summary>
+	[PublishedContentModel("contact")]
+	public partial class Contact : PublishedContentModel, IHeader
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "contact";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Contact(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Contact, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Hero Button: Enter details for the Hero Button
+		///</summary>
+		[ImplementPropertyType("heroButton")]
+		public Archetype.Models.ArchetypeModel HeroButton
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroButton(this); }
+		}
+
+		///<summary>
+		/// Hero Image: Select a Media Item to use as the background image for the Hero
+		///</summary>
+		[ImplementPropertyType("heroImage")]
+		public IPublishedContent HeroImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroImage(this); }
+		}
+
+		///<summary>
+		/// Hero Introduction: Enter a one or two sentance statment
+		///</summary>
+		[ImplementPropertyType("heroIntroduction")]
+		public IHtmlString HeroIntroduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroIntroduction(this); }
+		}
+
+		///<summary>
+		/// Hero Title: Enter the Hero Title - if left blank the page name will be used
+		///</summary>
+		[ImplementPropertyType("heroTitle")]
+		public string HeroTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.Header.GetHeroTitle(this); }
+		}
+	}
+
+	// Mixin content Type 1079 with alias "header"
+	/// <summary>Hero Component</summary>
+	public partial interface IHeader : IPublishedContent
+	{
+		/// <summary>Hero Button</summary>
+		Archetype.Models.ArchetypeModel HeroButton { get; }
+
+		/// <summary>Hero Image</summary>
+		IPublishedContent HeroImage { get; }
+
+		/// <summary>Hero Introduction</summary>
+		IHtmlString HeroIntroduction { get; }
+
+		/// <summary>Hero Title</summary>
+		string HeroTitle { get; }
+	}
+
+	/// <summary>Hero Component</summary>
+	[PublishedContentModel("header")]
+	public partial class Header : PublishedContentModel, IHeader
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "header";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Header(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Header, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Hero Button: Enter details for the Hero Button
+		///</summary>
+		[ImplementPropertyType("heroButton")]
+		public Archetype.Models.ArchetypeModel HeroButton
+		{
+			get { return GetHeroButton(this); }
+		}
+
+		/// <summary>Static getter for Hero Button</summary>
+		public static Archetype.Models.ArchetypeModel GetHeroButton(IHeader that) { return that.GetPropertyValue<Archetype.Models.ArchetypeModel>("heroButton"); }
+
+		///<summary>
+		/// Hero Image: Select a Media Item to use as the background image for the Hero
+		///</summary>
+		[ImplementPropertyType("heroImage")]
+		public IPublishedContent HeroImage
+		{
+			get { return GetHeroImage(this); }
+		}
+
+		/// <summary>Static getter for Hero Image</summary>
+		public static IPublishedContent GetHeroImage(IHeader that) { return that.GetPropertyValue<IPublishedContent>("heroImage"); }
+
+		///<summary>
+		/// Hero Introduction: Enter a one or two sentance statment
+		///</summary>
+		[ImplementPropertyType("heroIntroduction")]
+		public IHtmlString HeroIntroduction
+		{
+			get { return GetHeroIntroduction(this); }
+		}
+
+		/// <summary>Static getter for Hero Introduction</summary>
+		public static IHtmlString GetHeroIntroduction(IHeader that) { return that.GetPropertyValue<IHtmlString>("heroIntroduction"); }
+
+		///<summary>
+		/// Hero Title: Enter the Hero Title - if left blank the page name will be used
+		///</summary>
+		[ImplementPropertyType("heroTitle")]
+		public string HeroTitle
+		{
+			get { return GetHeroTitle(this); }
+		}
+
+		/// <summary>Static getter for Hero Title</summary>
+		public static string GetHeroTitle(IHeader that) { return that.GetPropertyValue<string>("heroTitle"); }
+	}
+
+	/// <summary>Service</summary>
+	[PublishedContentModel("service")]
+	public partial class Service : Services, IGenericContent, IServiceComponent
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "service";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Service(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Service, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Body Text: Enter the body text for the page
+		///</summary>
+		[ImplementPropertyType("bodyText")]
+		public IHtmlString BodyText
+		{
+			get { return Umbraco.Web.PublishedContentModels.GenericContent.GetBodyText(this); }
+		}
+
+		///<summary>
+		/// Service Button Text: Enter the text that you would like to display for the button text on the Services Page
+		///</summary>
+		[ImplementPropertyType("serviceButtonText")]
+		public string ServiceButtonText
+		{
+			get { return Umbraco.Web.PublishedContentModels.ServiceComponent.GetServiceButtonText(this); }
+		}
+
+		///<summary>
+		/// Service Icon: Set the icon to be used for the service - visible on the parent services page
+		///</summary>
+		[ImplementPropertyType("serviceIcon")]
+		public Newtonsoft.Json.Linq.JToken ServiceIcon
+		{
+			get { return Umbraco.Web.PublishedContentModels.ServiceComponent.GetServiceIcon(this); }
+		}
+
+		///<summary>
+		/// Service Intro
+		///</summary>
+		[ImplementPropertyType("serviceIntro")]
+		public string ServiceIntro
+		{
+			get { return Umbraco.Web.PublishedContentModels.ServiceComponent.GetServiceIntro(this); }
+		}
+	}
+
+	// Mixin content Type 1093 with alias "serviceComponent"
+	/// <summary>Service Component</summary>
+	public partial interface IServiceComponent : IPublishedContent
+	{
+		/// <summary>Service Button Text</summary>
+		string ServiceButtonText { get; }
+
+		/// <summary>Service Icon</summary>
+		Newtonsoft.Json.Linq.JToken ServiceIcon { get; }
+
+		/// <summary>Service Intro</summary>
+		string ServiceIntro { get; }
+	}
+
+	/// <summary>Service Component</summary>
+	[PublishedContentModel("serviceComponent")]
+	public partial class ServiceComponent : PublishedContentModel, IServiceComponent
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "serviceComponent";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public ServiceComponent(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ServiceComponent, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Service Button Text: Enter the text that you would like to display for the button text on the Services Page
+		///</summary>
+		[ImplementPropertyType("serviceButtonText")]
+		public string ServiceButtonText
+		{
+			get { return GetServiceButtonText(this); }
+		}
+
+		/// <summary>Static getter for Service Button Text</summary>
+		public static string GetServiceButtonText(IServiceComponent that) { return that.GetPropertyValue<string>("serviceButtonText"); }
+
+		///<summary>
+		/// Service Icon: Set the icon to be used for the service - visible on the parent services page
+		///</summary>
+		[ImplementPropertyType("serviceIcon")]
+		public Newtonsoft.Json.Linq.JToken ServiceIcon
+		{
+			get { return GetServiceIcon(this); }
+		}
+
+		/// <summary>Static getter for Service Icon</summary>
+		public static Newtonsoft.Json.Linq.JToken GetServiceIcon(IServiceComponent that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("serviceIcon"); }
+
+		///<summary>
+		/// Service Intro
+		///</summary>
+		[ImplementPropertyType("serviceIntro")]
+		public string ServiceIntro
+		{
+			get { return GetServiceIntro(this); }
+		}
+
+		/// <summary>Static getter for Service Intro</summary>
+		public static string GetServiceIntro(IServiceComponent that) { return that.GetPropertyValue<string>("serviceIntro"); }
+	}
+
+	// Mixin content Type 1095 with alias "genericContent"
+	/// <summary>Generic Content</summary>
+	public partial interface IGenericContent : IPublishedContent
+	{
+		/// <summary>Body Text</summary>
+		IHtmlString BodyText { get; }
+	}
+
+	/// <summary>Generic Content</summary>
+	[PublishedContentModel("genericContent")]
+	public partial class GenericContent : PublishedContentModel, IGenericContent
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "genericContent";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public GenericContent(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GenericContent, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Body Text: Enter the body text for the page
+		///</summary>
+		[ImplementPropertyType("bodyText")]
+		public IHtmlString BodyText
+		{
+			get { return GetBodyText(this); }
+		}
+
+		/// <summary>Static getter for Body Text</summary>
+		public static IHtmlString GetBodyText(IGenericContent that) { return that.GetPropertyValue<IHtmlString>("bodyText"); }
 	}
 
 	/// <summary>Folder</summary>
